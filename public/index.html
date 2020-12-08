@@ -10,24 +10,50 @@
   </head>
   <body style="text-align: center">
     <h1>Stock Ticker</h1>
-    <form>
+    <form id="form">
       Choose your identifier
-      <input
-        type="radio"
-        id="stock ticker"
-        name="identifier"
-        value="stock ticker"
-      />
+      <input type="radio" name="identifier" value="Ticker" />
       <label for="stock ticker">stock ticker</label>
-      <input
-        type="radio"
-        id="company name"
-        name="identifier"
-        value="company name"
-      />
+      <input type="radio" name="identifier" value="Company" />
       <label for="company name">company name</label><br /><br />
-      Enter your identifier <input type="text" />
+      Enter your identifier <input type="text" id="value" />
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
     </form>
-    <script src=""></script>
+    <br />
+    <br />
+    <div id="result"></div>
+    <script>
+      const resultDiv = document.getElementById("result");
+      const form = document.getElementById("form");
+      const radio = document.getElementsByName("identifier");
+      var identifier = null;
+
+      const getData = async (e) => {
+        e.preventDefault();
+        const value = document.getElementById("value").value;
+        const url = "/getInfor";
+        if (radio[0].checked) {
+          identifier = "Ticker";
+        } else if (radio[1].checked) {
+          identifier = "Company";
+        }
+        const rawRes = await fetch(url, {
+          headers: {
+            "identifier": identifier,
+            "value": value,
+          },
+        });
+
+        if (rawRes.status == 200) {
+          const res = await rawRes.json();
+          resultDiv.innerHTML = "Result: " + res.Company + ", " + res.Ticker;
+        } else {
+          resultDiv.innerHTML = "Result: Please give a vaid input";
+        }
+      };
+      form.addEventListener("submit", getData);
+    </script>
   </body>
 </html>
