@@ -29,7 +29,7 @@ app.get('/getInfor', async (req, res) => {
   if(!responseinfor){
       return res.status(400).json({err: "Please give valid input"})
   }
-  res.status(200).json({Company: responseinfor.Company, Ticker: responseinfor.Ticker});
+  res.status(200).json({responseInfor: responseinfor});
 })
 
 app.listen(port, async() => {

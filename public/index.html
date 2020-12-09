@@ -48,7 +48,12 @@
 
         if (rawRes.status == 200) {
           const res = await rawRes.json();
-          resultDiv.innerHTML = "Result: " + res.Company + ", " + res.Ticker;
+          console.log(res.responseInfor);
+          resultDiv.innerHTML = "Result(s): <br />";
+          res.responseInfor.forEach((company) => {
+            resultDiv.innerHTML +=
+              company.Company + " " + company.Ticker + "<br />";
+          });
         } else {
           resultDiv.innerHTML = "Result: Please give a vaid input";
         }
