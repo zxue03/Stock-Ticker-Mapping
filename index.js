@@ -39,24 +39,24 @@ app.listen(port, async() => {
     { useNewUrlParser: true,  useUnifiedTopology: true },
     () => console.log("Connected to db")
   );
-  await csvtojson()
-    .fromFile("companies-1.csv")
-    .then(csvData => {
-      csvData.forEach(async (company) => {
-        const old = await Company.findOne({Company: company.Company})
-        if(!old){
-          const newCompany = new Company({
-            Company: company.Company,
-            Ticker: company.Ticker
-          });
-          try{
-            const savedCompany = await newCompany.save();
-            console.log(savedCompany)
-          }
-          catch(err){
-            console.log("Something is wrong")          
-          }
-        }
-      })
-    }); 
+  // await csvtojson()
+  //   .fromFile("companies-1.csv")
+  //   .then(csvData => {
+  //     csvData.forEach(async (company) => {
+  //       const old = await Company.findOne({Company: company.Company})
+  //       if(!old){
+  //         const newCompany = new Company({
+  //           Company: company.Company,
+  //           Ticker: company.Ticker
+  //         });
+  //         try{
+  //           const savedCompany = await newCompany.save();
+  //           console.log(savedCompany)
+  //         }
+  //         catch(err){
+  //           console.log("Something is wrong")          
+  //         }
+  //       }
+  //     })
+  //   }); 
 })
