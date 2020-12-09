@@ -10,9 +10,12 @@ const csvtojson = require("csvtojson");
 
 
 dotenv.config();
-app.use(express.static('public'))
+// app.use(express.static('public'))
 app.use(express.json())
 
+app.get('/', (req, res) => {
+  res.send("Hello")
+})
 app.get('/getInfor', async (req, res) => {
   // var identifier = req.headers["identifier"];
   // var identifier;
