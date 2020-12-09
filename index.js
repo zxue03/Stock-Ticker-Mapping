@@ -35,7 +35,7 @@ app.get('/getInfor', async (req, res) => {
 app.listen(port, async() => {
   console.log(`Listening at http://localhost:${port}`)
   await mongoose.connect(
-    process.env.mongoConnect, 
+    "mongodb+srv://stockTicker:stockTicker@cluster0.lygfi.mongodb.net/companies?retryWrites=true&w=majority",å
     { useNewUrlParser: true,  useUnifiedTopology: true },
     () => console.log("Connected to db")
   );
