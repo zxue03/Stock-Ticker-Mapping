@@ -14,22 +14,22 @@ app.use(express.static('public'))
 app.use(express.json())
 
 app.get('/getInfor', async (req, res) => {
-  var identifier = req.headers["identifier"];
-  var identifier;
-  if(identifier == "Company"){
-      responseinfor = await Company.find({Company: req.headers["value"]});
-  }
-  else if(identifier == "Ticker"){
-      responseinfor = await Company.find({Ticker: req.headers["value"]});
-  }
-  else{
-      return res.status(400).json({err: "Please give valid input"})
-  }
+  // var identifier = req.headers["identifier"];
+  // var identifier;
+  // if(identifier == "Company"){
+  //     responseinfor = await Company.find({Company: req.headers["value"]});
+  // }
+  // else if(identifier == "Ticker"){
+  //     responseinfor = await Company.find({Ticker: req.headers["value"]});
+  // }
+  // else{
+  //     return res.status(400).json({err: "Please give valid input"})
+  // }
 
-  if(!responseinfor){
-      return res.status(400).json({err: "Please give valid input"})
-  }
-  res.status(200).json({responseInfor: responseinfor});
+  // if(!responseinfor){
+  //     return res.status(400).json({err: "Please give valid input"})
+  // }
+  res.status(200).json({responseInfor: "responseInfor"});
 })
 
 app.listen(port, async() => {
