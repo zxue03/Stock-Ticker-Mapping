@@ -36,8 +36,7 @@ app.listen(port, async() => {
   console.log(`Listening at http://localhost:${port}`)
   await mongoose.connect(
     "mongodb+srv://stockTicker:stockTicker@cluster0.lygfi.mongodb.net/companies?retryWrites=true&w=majority",
-    { useNewUrlParser: true,  useUnifiedTopology: true },
-    () => console.log("Connected to db")
+    { useNewUrlParser: true,  useUnifiedTopology: true },å
   );
   // await csvtojson()
   //   .fromFile("companies-1.csv")
