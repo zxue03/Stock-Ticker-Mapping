@@ -35,12 +35,12 @@ app.get('/getInfor', async (req, res) => {
   res.status(200).json({responseInfor: "responseInfor"});
 })
 
-app.listen(port, async() => {
-  console.log(`Listening at http://localhost:${port}`)
-  await mongoose.connect(
-    "mongodb+srv://stockTicker:stockTicker@cluster0.lygfi.mongodb.net/companies?retryWrites=true&w=majority",
-    { useNewUrlParser: true,  useUnifiedTopology: true },å
-  );
+app.listen(port, () => {
+  // console.log(`Listening at http://localhost:${port}`)
+  // await mongoose.connect(
+  //   "mongodb+srv://stockTicker:stockTicker@cluster0.lygfi.mongodb.net/companies?retryWrites=true&w=majority",
+  //   { useNewUrlParser: true,  useUnifiedTopology: true },å
+  // );
   // await csvtojson()
   //   .fromFile("companies-1.csv")
   //   .then(csvData => {
