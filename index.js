@@ -35,7 +35,7 @@ app.get('/getInfor', async (req, res) => {
   res.status(200).json({responseInfor: "responseInfor"});
 })
 
-app.listen(port, () => {
+app.listen(port, (req, res) => {
   // console.log(`Listening at http://localhost:${port}`)
   // await mongoose.connect(
   //   "mongodb+srv://stockTicker:stockTicker@cluster0.lygfi.mongodb.net/companies?retryWrites=true&w=majority",
@@ -61,4 +61,5 @@ app.listen(port, () => {
   //       }
   //     })
   //   }); 
+  res.send("Hello")
 })
